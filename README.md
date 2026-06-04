@@ -47,3 +47,64 @@ _install FastAPI with the standard dependencies but without the `fastapi-cloud-c
 ```bash
 pip install "fastapi[standard-no-fastapi-cloud-cli]"
 ```
+
+### Run Locally
+
+```
+fastapi dev
+```
+
+---
+
+# Recommended Structure
+
+```
+project/
+│
+├── frontend/
+│   └── React/Next.js
+│
+├── backend/
+│   ├── api/
+│   ├── auth/
+│   ├── users/
+│       ├── router.py
+│       ├── service.py
+│       ├── repository.py
+│       ├── schemas.py
+│       └── models.py
+│   ├── payments/
+│   ├── notifications/
+│   ├── reports/
+│   ├── admin/
+│   └── shared/
+│
+├── worker/
+│   └── celery_tasks/
+│
+├── nginx/
+│
+├── docker-compose.yml
+│
+└── postgres
+```
+
+# WorkFlow
+
+```
+Frontend (React / Next.js)
+          │
+          ▼
+       Nginx
+          │
+          ▼
+      FastAPI
+          │
+ ┌────────┼────────┐
+ ▼        ▼        ▼
+
+Postgres Redis Celery
+               │
+               ▼
+           RabbitMQ
+```
