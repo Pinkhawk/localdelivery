@@ -1,4 +1,4 @@
-# localdelivery
+# localdelivery backend
 
 _In windows_
 
@@ -11,13 +11,13 @@ python -m venv .venv
 **Activate Virtual ENV**
 
 ```bash
-myenv\Scripts\activate
+.venv\Scripts\activate
 ```
 
 _PowerShell-_
 
 ```PowerShell
-.\myenv\Scripts\Activate.ps1
+.\venv\Scripts\Activate.ps1
 ```
 
 _If PowerShell blocks execution:_
@@ -60,10 +60,6 @@ fastapi dev
 
 ```
 project/
-│
-├── frontend/
-│   └── React/Next.js
-│
 ├── backend/
 │   ├── api/
 │   ├── auth/
@@ -78,33 +74,7 @@ project/
 │   ├── reports/
 │   ├── admin/
 │   └── shared/
-│
-├── worker/
-│   └── celery_tasks/
-│
-├── nginx/
-│
-├── docker-compose.yml
-│
-└── postgres
+
 ```
 
 # WorkFlow
-
-```
-Frontend (React / Next.js)
-          │
-          ▼
-       Nginx
-          │
-          ▼
-      FastAPI
-          │
- ┌────────┼────────┐
- ▼        ▼        ▼
-
-Postgres Redis Celery
-               │
-               ▼
-           RabbitMQ
-```
