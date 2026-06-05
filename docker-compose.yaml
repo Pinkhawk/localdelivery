@@ -1,0 +1,23 @@
+services:
+
+  frontend:
+    build: ./frontend
+
+  api:
+    build: ./backend
+
+  postgres:
+    image: postgres:17
+
+  redis:
+    image: redis:8
+
+  rabbitmq:
+    image: rabbitmq:management
+
+  celery:
+    build: ./backend
+    command: celery -A app.worker worker -l info
+
+  nginx:
+    image: nginx
